@@ -1,12 +1,18 @@
-install: 
-    pip install --upgrade pip &&\
+install:
+	pip install --upgrade pip && \
 	pip install -r requirements.txt
 
 format:
 	black *.py
+
 lint:
-    flake8 --max-line-length=88 *.py
+	flake8 --max-line-length=88 *.py
+
 test:
-	pytest -v 
+	pytest -v
+
 all:
-	install format lint test
+	make install
+	make format
+	make lint
+	make test
